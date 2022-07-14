@@ -38,6 +38,7 @@ public class Driver {
                     System.out.println("Unknown Browser Type " + browserType);
             }
             driverPool.get().manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS); //trigger when the driver cant find an element. It  gives extra time to do it.if time passes, and it does not find it; it will return exception or empty list.
+            driverPool.get().manage().window().maximize();
             return driverPool.get();
         }
         return driverPool.get();

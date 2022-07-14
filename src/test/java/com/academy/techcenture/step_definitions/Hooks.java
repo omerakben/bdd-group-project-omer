@@ -6,12 +6,13 @@ import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
+import static com.academy.techcenture.utilities.RecordVideo.*;
 
 public class Hooks {
 
     @Before(order = 1)
     public void setup(Scenario scenario) {
-        System.out.println("Scenario name ->" + scenario.getName());
+        startRecording(scenario);
     }
 
     @After
@@ -22,6 +23,6 @@ public class Hooks {
             scenario.attach(screenshot, "image/png", scenario.getName()); // location/extensionType
         }
         Driver.closeDriver();
-
+        stopRecording();
     }
 }
